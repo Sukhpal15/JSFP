@@ -17,7 +17,7 @@ type Props = {
 
 export function QuestionList({ questions: filteredQuestions, activeCategory, setActiveCategory, selectedId, selectQuestion, questionPanelWidth, setQuestionPanelWidth }: Props) {
   return (
-    <div className="min-w-0 overflow-hidden rounded-2xl border border-white/[0.09] bg-[#111118]">
+    <div className="flex min-h-0 min-w-0 flex-col overflow-hidden rounded-2xl border border-white/[0.09] bg-[#111118] max-h-[70vh] xl:max-h-[calc(100vh-12rem)]">
       <div className="border-b border-white/[0.07] p-2.5">
         <div className="flex items-center justify-between gap-2">
           <div className="min-w-0"><h3 className="text-xs font-semibold">Practice questions</h3><p className="mt-1 text-[9px] text-[#827b94]">{filteredQuestions.length} shown</p></div>
@@ -37,7 +37,7 @@ export function QuestionList({ questions: filteredQuestions, activeCategory, set
           })}
         </select>
       </div>
-      <div className="space-y-1 overflow-y-auto p-1.5">
+      <div className="min-h-0 flex-1 space-y-1 overflow-y-auto p-1.5 [scrollbar-color:#7555a4_#17171f] [scrollbar-width:thin] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#7555a4] [&::-webkit-scrollbar-track]:bg-[#17171f]">
         <p className="px-1 pb-1 text-[9px] font-semibold uppercase tracking-widest text-[#827b94]">{activeCategory === "All Questions" ? "All challenges" : `${activeCategory} questions`}</p>
         {filteredQuestions.map((question) => (
           <button key={question.id} onClick={() => selectQuestion(question)} className={`w-full rounded-lg border p-2 text-left transition ${selectedId === question.id ? "border-[#7555a4] bg-[#261d35]" : "border-transparent bg-[#17171f] hover:border-white/[0.1]"}`}>
