@@ -18,6 +18,8 @@ type Props = {
   code: string;
   setCode: (value: string) => void;
   output: string;
+  catVoiceEnabled: boolean;
+  setCatVoiceEnabled: (enabled: boolean) => void;
   runCode: () => void;
   resetCode: () => void;
   showHint: boolean;
@@ -30,7 +32,7 @@ type Props = {
 };
 
 export function PracticeWorkspace(props: Props) {
-  const { currentQuestion, filteredQuestions, activeCategory, setActiveCategory, selectQuestion, code, setCode, output, runCode, resetCode, showHint, setShowHint, questionPanelWidth, setQuestionPanelWidth, isResizingQuestions, setIsResizingQuestions, practiceLayoutRef } = props;
+  const { currentQuestion, filteredQuestions, activeCategory, setActiveCategory, selectQuestion, code, setCode, output, catVoiceEnabled, setCatVoiceEnabled, runCode, resetCode, showHint, setShowHint, questionPanelWidth, setQuestionPanelWidth, isResizingQuestions, setIsResizingQuestions, practiceLayoutRef } = props;
   return (
     <>
       <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
@@ -39,7 +41,13 @@ export function PracticeWorkspace(props: Props) {
           <h2 className="text-2xl font-semibold sm:text-3xl">Let&apos;s write some code.</h2>
           <p className="mt-2 text-sm text-[#9993aa]">Learn by doing, one question at a time.</p>
         </div>
-        <div className="flex gap-3 rounded-xl border border-white/[0.08] bg-[#14141c] px-4 py-3 text-sm text-[#aaa5b8]"><span className="text-[#c6a9ff]">●</span>Practice mode</div>
+        <div className="flex flex-wrap items-center gap-3">
+          <label className="flex cursor-pointer items-center gap-2 rounded-xl border border-white/[0.08] bg-[#14141c] px-3 py-2.5 text-xs text-[#aaa5b8]">
+            <input type="checkbox" checked={catVoiceEnabled} onChange={(event) => setCatVoiceEnabled(event.target.checked)} className="accent-[#a88add]" />
+            Cat voice {catVoiceEnabled ? "on" : "off"}
+          </label>
+          <div className="flex gap-3 rounded-xl border border-white/[0.08] bg-[#14141c] px-4 py-3 text-sm text-[#aaa5b8]"><span className="text-[#c6a9ff]">●</span>Practice mode</div>
+        </div>
       </div>
 
       <div ref={practiceLayoutRef} className="grid grid-cols-1 gap-3 xl:grid-cols-[var(--question-panel-width)_10px_minmax(0,1fr)]" style={{ "--question-panel-width": `${questionPanelWidth}px` } as CSSProperties}>

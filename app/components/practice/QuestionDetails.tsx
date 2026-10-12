@@ -19,7 +19,7 @@ export function QuestionDetails({ question }: { question: Question }) {
         <p className="text-sm leading-6 text-[#c4bfce]">{question.description}</p>
         <div className="mt-4 rounded-xl border border-white/[0.07] bg-[#17171f] p-3">
           <p className="mb-2 text-xs font-medium text-[#aaa5b8]">Your task</p>
-          <p className="text-xs leading-5 text-[#c7b4e7]">Write your solution in the editor and run it when the code runner is connected.</p>
+          <p className="text-xs leading-5 text-[#c7b4e7]">Write your solution, then choose Run code to see your console output. Use <kbd className="rounded border border-white/10 bg-black/20 px-1.5 py-0.5 font-mono text-[10px]">Ctrl/⌘ + Enter</kbd> to run it from the editor.</p>
         </div>
       </div>
     </div>
