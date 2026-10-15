@@ -7,6 +7,7 @@ import { QuestionDetails } from "./QuestionDetails";
 import { CodeEditor } from "./CodeEditor";
 import { OutputPanel } from "./OutputPanel";
 import { HintPanel } from "./HintPanel";
+import CallPets from "../cool/CallPets";
 
 type Question = (typeof questionData)[number];
 type Props = {
@@ -46,6 +47,7 @@ export function PracticeWorkspace(props: Props) {
             <input type="checkbox" checked={catVoiceEnabled} onChange={(event) => setCatVoiceEnabled(event.target.checked)} className="accent-[#a88add]" />
             Cat voice {catVoiceEnabled ? "on" : "off"}
           </label>
+          <CallPets />
           <div className="flex gap-3 rounded-xl border border-white/[0.08] bg-[#14141c] px-4 py-3 text-sm text-[#aaa5b8]"><span className="text-[#c6a9ff]">●</span>Practice mode</div>
         </div>
       </div>
